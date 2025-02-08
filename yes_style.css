@@ -1,24 +1,66 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f9e3e3;
-    font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f9e3e3;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden; /* so falling petals don’t create scrollbars */
 }
 
 .container {
-    text-align: center;
+  text-align: center;
 }
 
 .header_text {
-    font-size: 3em;
-    color: #d32f2f;
+  font-size: 3em;
+  color: #d32f2f;
 }
 
 .gif_container img {
-    width: 100%; 
-    max-width: 500px; 
-    height: auto; 
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+/* --- Rose Petal Styles --- */
+.rose-petal {
+  position: fixed;
+  top: -50px; /* start above the viewport */
+  z-index: 9999;
+  pointer-events: none;
+  width: 30px;
+  height: 30px;
+  /* Replace the URL below with your preferred rose petal image */
+  background-image: url('https://t4.ftcdn.net/jpg/00/80/89/31/360_F_80893169_dudw4Jtvv5KYxwoX6sdA1drgefLPskrM.jpg');
+  background-size: cover;
+  opacity: 0.8;
+  /* Random rotation added via JavaScript could be an extra enhancement */
+  transform: rotate(0deg);
+  animation-name: fall, sway;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: 1, infinite;
+}
+
+/* Fall animation: moves petal from the top to beyond the bottom */
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.5;
+  }
+}
+
+/* Sway animation: gives a gentle left-right drifting effect */
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
 }
