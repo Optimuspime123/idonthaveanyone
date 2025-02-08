@@ -1,48 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Knew you would say yes!</title>
-  <link rel="stylesheet" href="./yes_style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knew you would say yes!</title>
+
 </head>
 <body>
-  <div class="container">
-    <h1 class="header_text">Knew you would say yes!</h1>
-    <div class="gif_container">
-      <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif" alt="Celebration GIF" />
+    <div id="petals"></div>
+    <div class="container">
+        <h1 class="header_text">Knew you would say yes!</h1>
+        <div class="gif_container">
+            <img  src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif">
+        </div>
     </div>
-  </div>
-
-  <!-- JavaScript to create a shower of rose petals -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const numPetals = 20; // adjust number of petals if desired
-
-      for (let i = 0; i < numPetals; i++) {
-        const petal = document.createElement("div");
-        petal.classList.add("rose-petal");
-
-        // Set a random horizontal starting position (across the viewport width)
-        petal.style.left = Math.random() * window.innerWidth + "px";
-
-        // Randomize animation duration between 5 and 10 seconds
-        const duration = 5 + Math.random() * 5;
-        petal.style.animationDuration = duration + "s";
-
-        // Random delay (so they don't all start at once)
-        const delay = Math.random() * 5;
-        petal.style.animationDelay = delay + "s";
-
-        // Append the petal to the body
-        document.body.appendChild(petal);
-
-        // Remove petal from DOM once its animation is complete
-        setTimeout(() => {
-          petal.remove();
-        }, (duration + delay) * 1000);
-      }
-    });
-  </script>
+    <script src="./petals.js"></script>
 </body>
 </html>
