@@ -79,7 +79,8 @@ h1 {
 }
 
 .gif.right {
-  animation-delay: 0.4s;
+  mix-blend-mode: multiply
+  animation-delay: 0.2s;
 }
 
 .gif img {
