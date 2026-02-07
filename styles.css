@@ -79,12 +79,14 @@ h1 {
 }
 
 .gif.right {
-  mix-blend-mode: multiply;
-  animation-delay: 0.2s;
+  isolation: isolate;          
 }
 
 .gif.right img {
   mix-blend-mode: multiply;
+  will-change: opacity, transform;
+  transform: translateZ(0);    /* force a layer */
+  backface-visibility: hidden;
 }
 
 .gif img {
